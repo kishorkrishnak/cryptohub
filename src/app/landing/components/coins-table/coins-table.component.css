@@ -1,0 +1,114 @@
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+h2 {
+  margin: 18px;
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: white;
+}
+
+.search-box {
+  background:transparent;
+  width: 100%;
+  padding: 16px 10px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.search-box::placeholder{
+  color:white;
+}
+
+.loading-bar {
+  height: 5px;
+  width: 100%;
+  background-color: gold;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    width: 0%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.coin-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  overflow-x:auto;
+}
+
+.coin-table thead {
+  background-color: #eebc1d;
+}
+
+.coin-table th {
+  padding: 10px;
+  font-weight: bold;
+}
+
+.coin-table td {
+  padding: 20px 10px;
+  border-bottom: 1px solid #444;
+}
+
+.coin-info {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+}
+
+.coin-image {
+  height: 45px;
+}
+
+.coin-name {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+}
+
+.symbol {
+  font-size: 15px;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.name {
+  color: darkgrey;
+  font-size: 14px;
+}
+
+.pagination {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.pagination button {
+  background: transparent;
+  border: 1px solid gold;
+  color: gold;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: gold;
+  color: black;
+}

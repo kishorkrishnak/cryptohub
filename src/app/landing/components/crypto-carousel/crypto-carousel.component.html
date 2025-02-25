@@ -1,0 +1,35 @@
+<div class="carousel-container">
+  <button class="nav-button left" (click)="prevSlide()">&#10094;</button>
+
+  <div class="carousel-wrapper">
+    <div
+      class="carousel-track"
+      [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
+    >
+      <div *ngFor="let coin of trendingCoins()" class="carousel-item">
+        <a class="coin-item" [routerLink]="['/coins', coin.id]">
+          <img [src]="coin.image" [alt]="coin.name" height="70" />
+          <div>
+            <span class="coin-symbol">{{ coin.symbol.toUpperCase() }}</span>
+            <span
+              class="coin-change"
+              [style.color]="
+                coin.price_change_percentage_24h >= 0
+                  ? 'rgb(14, 203, 129)'
+                  : 'red'
+              "
+            >
+              {{ coin.price_change_percentage_24h >= 0 ? "+" : ""
+              }}{{ coin.price_change_percentage_24h.toFixed(2) }}%
+            </span>
+          </div>
+          <span class="coin-price">
+            {{ symbol }} {{ numberWithCommas(coin.current_price) }}
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <button class="nav-button right" (click)="nextSlide()">&#10095;</button>
+</div>

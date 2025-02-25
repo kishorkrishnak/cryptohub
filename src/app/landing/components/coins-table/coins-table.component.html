@@ -1,0 +1,59 @@
+<div class="container">
+  <h2>Cryptocurrency Prices by Market Cap</h2>
+
+  <input
+    type="text"
+    class="search-box"
+    placeholder="Search a Cryptocurrency"
+    [(ngModel)]="search"
+  />
+
+  <div *ngIf="loading" class="loading-bar"></div>
+
+  <table class="coin-table" *ngIf="!loading">
+    <thead>
+      <tr>
+        <th>Coin</th>
+        <th>Price</th>
+        <th>24h Change</th>
+        <th>Market Cap</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let coin of handleSearch().slice((page - 1) * 10, page * 10)">
+        <td class="coin-info">
+          <img [src]="coin.image" [alt]="coin.name" class="coin-image" />
+          <div class="coin-name">
+            <span class="symbol">{{ coin.symbol.toUpperCase() }}</span>
+            <span class="name">{{ coin.name }}</span>
+          </div>
+        </td>
+        <td style="color: white">
+          {{ symbol }} {{ numberWithCommas(coin.current_price.toFixed(2)) }}
+        </td>
+        <td
+          [style.color]="
+            coin.price_change_percentage_24h > 0 ? 'rgb(14, 203, 129)' : 'red'
+          "
+        >
+          {{ coin.price_change_percentage_24h > 0 ? "+" : "" }}
+          {{ coin.price_change_percentage_24h.toFixed(2) }}%
+        </td>
+        <td style="color: white">
+          {{ symbol }}
+          {{ numberWithCommas(coin.market_cap.toString().slice(0, -6)) }}M
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="pagination">
+    <button
+      *ngFor="let i of getPaginationArray()"
+      (click)="changePage(i)"
+      [class.active]="page === i"
+    >
+      {{ i }}
+    </button>
+  </div>
+</div>
