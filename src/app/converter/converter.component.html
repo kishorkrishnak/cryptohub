@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+<div class="container">
+    <h2 style="font-weight: bold; text-align: center;color:white;">
+        Cryptocurrency Converter Calculator
+      </h2>
+      
+  <div *ngIf="loading" class="loading-bar"></div>
+
+  <div class="converter-wrapper">
+    <input type="number" [(ngModel)]="value" placeholder="Enter amount" />
+
+    <div class="converter">
+      <select [(ngModel)]="currentCoin" (change)="fetchCurrentPrice()">
+        <option *ngFor="let coin of coins" [value]="coin.id">
+          {{ coin.name }} ({{ coin.symbol.toUpperCase() }})
+        </option>
+      </select>
+
+      <button class="swap-btn" (click)="swapDirection = swapDirection === 'CURR-COIN' ? 'COIN-CURR' : 'CURR-COIN'">
+        <img src="assets/swap.svg" alt="Swap">
+      </button>
+      
+
+      <select [(ngModel)]="currentCurrency" (change)="fetchCurrentPrice()">
+        <option *ngFor="let currency of currencyList" [value]="currency.id">
+          {{ currency.text }}
+        </option>
+      </select>
+    </div>
+
+    <p>
+      <strong>
+        {{
+          swapDirection === "COIN-CURR"
+            ? value +
+              " " +
+              currentCoin +
+              " = " +
+              (value * currentPrice).toFixed(6) +
+              " " +
+              currentCurrency
+            : value +
+              " " +
+              currentCurrency +
+              " = " +
+              (value / currentPrice).toFixed(6) +
+              " " +
+              currentCoin
+        }}
+      </strong>
+    </p>
+
+    <button class="reset-btn" (click)="resetConverter()">Reset</button>
+  </div>
+</div>
+
+<app-footer></app-footer>
