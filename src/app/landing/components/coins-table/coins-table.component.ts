@@ -7,26 +7,40 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-coins-table',
   templateUrl: './coins-table.component.html',
   styleUrls: ['./coins-table.component.css'],
-  imports: [CommonModule, FormsModule] 
+  imports: [CommonModule, FormsModule],
 })
 export class CoinsTableComponent implements OnInit {
   coins: any[] = [];
   loading: boolean = false;
   search: string = '';
   page: number = 1;
-  currency: string = 'inr';  // Default currency
-  symbol: string = '₹';  // Default symbol for USD
-  Math = Math; 
+  currency: string = 'inr'; // Default currency
+  symbol: string = '₹'; // Default symbol for USD
+  Math = Math;
   getPaginationArray(): number[] {
-    return Array.from({ length: Math.ceil(this.handleSearch().length / 10) }, (_, i) => i + 1);
+    return Array.from(
+      { length: Math.ceil(this.handleSearch().length / 10) },
+      (_, i) => i + 1
+    );
   }
-  
+
   async fetchCoins() {
     this.loading = true;
     try {
-      const response = await axios.get(`https://api.coingecko.com/api/v3/coins/markets`, {
-        params: { vs_currency: this.currency, order: 'market_cap_desc', per_page: 100, page: 1, sparkline: false }
-      });
+      const response = await axios.get(
+        `https://api.coingecko.com/api/v3/coins/markets`,
+        {
+          params: {
+            vs_currency: this.currency,
+            order: 'market_cap_desc',
+            per_page: 100,
+            page: 1,
+            sparkline: false,
+
+            x_cg_demo_api_key: 'CG-StvTPmrYMoQ5Q3upG7SJkti1',
+          },
+        }
+      );
       this.coins = response.data;
     } catch (error) {
       console.error('Error fetching coins:', error);
@@ -39,9 +53,10 @@ export class CoinsTableComponent implements OnInit {
   }
 
   handleSearch(): any[] {
-    return this.coins.filter(coin =>
-      coin.name.toLowerCase().includes(this.search.toLowerCase()) ||
-      coin.symbol.toLowerCase().includes(this.search.toLowerCase())
+    return this.coins.filter(
+      (coin) =>
+        coin.name.toLowerCase().includes(this.search.toLowerCase()) ||
+        coin.symbol.toLowerCase().includes(this.search.toLowerCase())
     );
   }
 
@@ -52,7 +67,7 @@ export class CoinsTableComponent implements OnInit {
       table.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
-  
+
   ngOnInit() {
     this.fetchCoins();
   }

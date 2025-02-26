@@ -36,7 +36,7 @@ export class CoinComponent implements OnInit {
   async fetchCoin(id: string) {
     try {
       const response = await axios.get(
-        `https://api.coingecko.com/api/v3/coins/${id}`
+        `https://api.coingecko.com/api/v3/coins/${id}?x_cg_demo_api_key=CG-StvTPmrYMoQ5Q3upG7SJkti1`
       );
       this.coin = response.data;
     } catch (error) {

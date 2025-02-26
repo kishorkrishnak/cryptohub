@@ -64,10 +64,13 @@
 }
 
 .nav-button.left {
+  z-index:100;
   left: 0;
 }
 
 .nav-button.right {
+  z-index:100;
+
   right: 0;
 }
 

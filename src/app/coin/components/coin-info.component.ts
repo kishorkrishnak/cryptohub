@@ -28,7 +28,7 @@ export class CoinInfoComponent implements OnInit {
     this.loading = true;
     try {
       const response = await axios.get(
-        `https://api.coingecko.com/api/v3/coins/${this.coinId}/market_chart?vs_currency=${this.currency}&days=${this.days}`
+        `https://api.coingecko.com/api/v3/coins/${this.coinId}/market_chart?vs_currency=${this.currency}&days=${this.days}&x_cg_demo_api_key=CG-StvTPmrYMoQ5Q3upG7SJkti1`
       );
 
       this.historicData = response.data.prices;
