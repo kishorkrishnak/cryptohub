@@ -29,7 +29,7 @@ import { Injectable } from '@angular/core';
 export class CoinComponent implements OnInit {
   coin: any;
   currency: string = 'usd';
-  symbol: string = '$';
+  symbol: string = '₹';
 
   constructor(private route: ActivatedRoute) {}
 

@@ -42,7 +42,8 @@
 }
 
 .chart-section {
-  width: 800px;
+  width: 100%;
+  max-width:800px;
   flex-direction:column;
   display: flex;
   justify-content: center;
@@ -51,10 +52,20 @@
 }
 
 .chart-container {
-  width: 100%;
-  max-width: 1000px;
-}
+    width: 100%;
+    max-width: 800px;
+    height: auto; /* Allow height to adjust */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
 
+  canvas {
+    width: 100% !important;
+    height: auto !important;
+    display: block;
+  }
 mat-form-field {
   width: 100%;
   margin-top: 20px;
@@ -62,7 +73,6 @@ mat-form-field {
 
 @media (max-width: 768px) {
   .coin-container {
-    width:300px;
     flex-direction: column;
     align-items: center;
   }
@@ -73,7 +83,34 @@ mat-form-field {
     text-align: center;
   }
 
-  .chart-section {
-    width: 100%;
+  .chart-container {
+    max-width:300px;
   }
 }
+
+.timeframe-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  
+  .timeframe-box {
+    padding: 10px 20px;
+    border: 2px solid gold;
+    color: white;
+    cursor: pointer;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .timeframe-box:hover {
+    background-color: rgba(238, 188, 29, 0.2);
+  }
+  
+  .timeframe-box.active {
+    background-color: gold;
+    color: black;
+  }
+  

@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Input, OnInit, ViewChild } from '@angular/core';
-import { MatSelectModule } from '@angular/material/select';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatSelectModule } from '@angular/material/select';
 import axios from 'axios';
-import { Chart, ChartConfiguration, ChartOptions, registerables } from 'chart.js';
+import { Chart, ChartOptions, registerables } from 'chart.js';
 
 Chart.register(...registerables);
 
@@ -63,7 +63,9 @@ export class CoinInfoComponent implements OnInit {
           labels: labels,
           datasets: [
             {
-              label: `Price (Past ${this.days} Days) in ${this.currency.toUpperCase()}`,
+              label: `Price (Past ${
+                this.days
+              } Days) in ${this.currency.toUpperCase()}`,
               data: dataPoints,
               borderColor: '#EEBC1D',
               borderWidth: 2,

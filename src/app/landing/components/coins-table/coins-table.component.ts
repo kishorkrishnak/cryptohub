@@ -15,7 +15,7 @@ export class CoinsTableComponent implements OnInit {
   search: string = '';
   page: number = 1;
   currency: string = 'inr';  // Default currency
-  symbol: string = '$';  // Default symbol for USD
+  symbol: string = '₹';  // Default symbol for USD
   Math = Math; 
   getPaginationArray(): number[] {
     return Array.from({ length: Math.ceil(this.handleSearch().length / 10) }, (_, i) => i + 1);

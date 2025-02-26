@@ -3,12 +3,20 @@
     <canvas #chartCanvas></canvas>
   </div>
 
-  <mat-form-field appearance="outline">
-    <mat-label>Select Days</mat-label>
-    <mat-select [(value)]="days" (selectionChange)="updateDays($event.value)">
-      <mat-option *ngFor="let d of [1, 7, 30, 90, 180, 365]" [value]="d">
-        {{ d }} Days
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <!-- <div class="timeframe-buttons">
+    <div
+      *ngFor="
+        let d of [
+          { label: '24H', value: 1 },
+          { label: '7D', value: 7 },
+          { label: '30D', value: 30 }
+        ]
+      "
+      class="timeframe-box"
+      [class.active]="days === d.value"
+      (click)="updateDays(d.value)"
+    >
+      {{ d.label }}
+    </div>
+  </div> -->
 </div>
