@@ -7,7 +7,7 @@
       [style.transform]="'translateX(-' + currentIndex * 100 + '%)'"
     >
       <div *ngFor="let coin of trendingCoins()" class="carousel-item">
-        <a class="coin-item" [routerLink]="['/coins', coin.id]">
+        <a class="coin-item" [routerLink]="['/coin', coin.id]">
           <img [src]="coin.image" [alt]="coin.name" height="70" />
           <div>
             <span class="coin-symbol">{{ coin.symbol.toUpperCase() }}</span>

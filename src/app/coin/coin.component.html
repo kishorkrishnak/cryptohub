@@ -1,0 +1,31 @@
+<app-header></app-header>
+<div class="container">
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <img [src]="coin?.image.large" [alt]="coin?.name" height="200" />
+      <h3>{{ coin?.name }}</h3>
+      <h6>Rank: {{ numberWithCommas(coin?.market_cap_rank) }}</h6>
+      <h6>
+        Current Price: {{ symbol
+        }}{{ numberWithCommas(coin?.market_data?.current_price[currency]) }}
+      </h6>
+      <h6>
+        Market Cap: {{ symbol
+        }}{{
+          numberWithCommas(
+            coin?.market_data?.market_cap[currency]?.toString().slice(0, -6)
+          )
+        }}M
+      </h6>
+    </div>
+  
+    <!-- Separator -->
+    <div class="separator"></div>
+  
+    <app-coin-info *ngIf="coin?.id" [coinId]="coin.id"></app-coin-info>
+  </div>
+  
+  <ng-template #loading>
+    <p>Loading chart...</p>
+  </ng-template>
+  <app-footer></app-footer>
