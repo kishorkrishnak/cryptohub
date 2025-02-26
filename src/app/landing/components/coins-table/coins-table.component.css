@@ -14,18 +14,18 @@ h2 {
 }
 
 .search-box {
-  background:transparent;
+  background: transparent;
   width: 100%;
   padding: 16px 10px;
   margin-bottom: 20px;
   font-size: 16px;
   border-radius: 5px;
-  color:white;
+  color: white;
   border: 1px solid #ccc;
 }
 
-.search-box::placeholder{
-  color:white;
+.search-box::placeholder {
+  color: white;
 }
 
 .loading-bar {
@@ -48,7 +48,7 @@ h2 {
   width: 100%;
   border-collapse: collapse;
   margin-top: 10px;
-  overflow-x:auto;
+  overflow-x: auto;
 }
 
 .coin-table thead {
@@ -68,10 +68,11 @@ h2 {
 .coin-info {
   display: flex;
   align-items: center;
-
   gap: 15px;
 }
-
+.coin-row {
+  cursor: pointer;
+}
 .coin-image {
   height: 45px;
 }

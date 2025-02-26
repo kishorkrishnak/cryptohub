@@ -2,12 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import axios from 'axios';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
 @Component({
   standalone: true,
   selector: 'app-coins-table',
   templateUrl: './coins-table.component.html',
   styleUrls: ['./coins-table.component.css'],
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, RouterModule],
 })
 export class CoinsTableComponent implements OnInit {
   coins: any[] = [];

@@ -1,14 +1,15 @@
-import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FooterComponent } from '../landing/components/footer/footer.component';
-import { HeaderComponent } from '../landing/components/header/header.component';
+import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms'; // ✅ Import FormsModule for ngModel
 import axios from 'axios';
+import { FooterComponent } from '../landing/components/footer/footer.component';
+import { HeaderComponent } from '../landing/components/header/header.component';
+
 
 @Component({
   selector: 'app-converter',
   standalone: true,
-  imports: [CommonModule, FormsModule, FooterComponent, HeaderComponent], // ✅ Add FormsModule here
+  imports: [CommonModule, FormsModule, FooterComponent, HeaderComponent], 
   templateUrl: './converter.component.html',
   styleUrl: './converter.component.css',
 })

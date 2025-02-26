@@ -20,8 +20,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let coin of handleSearch().slice((page - 1) * 10, page * 10)">
-        <td class="coin-info">
+      <tr class="coin-row" [routerLink]="['/coin', coin.id]" *ngFor="let coin of handleSearch().slice((page - 1) * 10, page * 10)">
+        <td class="coin-info" >
           <img [src]="coin.image" [alt]="coin.name" class="coin-image" />
           <div class="coin-name">
             <span class="symbol">{{ coin.symbol.toUpperCase() }}</span>
